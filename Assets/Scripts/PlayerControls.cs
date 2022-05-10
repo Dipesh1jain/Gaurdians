@@ -19,6 +19,8 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] float positionRollFactor = -2f;
     [SerializeField] float controlRollFactor = -20f;
 
+    [SerializeField] GameObject[] lasers;
+
 
 
 
@@ -27,16 +29,14 @@ public class PlayerControls : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+  
 
     // Update is called once per frame
     void Update()
     {
         ProcessTranslation();
         ProcessRotation();
+        ProcessFiring();
 
     }
 
@@ -63,6 +63,7 @@ public class PlayerControls : MonoBehaviour
     {
          xThrow = Input.GetAxis("Horizontal");
          yThrow = Input.GetAxis("Vertical");
+     
 
 
         float xOffset = xThrow * Time.deltaTime * xControlSpeed;
@@ -77,4 +78,29 @@ public class PlayerControls : MonoBehaviour
 
         transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
     }
+     void ProcessFiring()
+    {
+        // if pusing fire button
+        if (Input.GetButton("Fire1"))
+        {
+            SetLasersActive(true);
+        }
+        else
+        {
+            SetLasersActive(false);
+        }
+           
+        
+    }
+    void SetLasersActive(bool isActive)
+    {
+        foreach (GameObject laser in lasers)
+        {
+            var emissionModule = laser.GetComponent<ParticleSystem>().emission;
+            emissionModule.enabled = isActive;
+
+
+        }//foreach(ObjectType item in things) here item is named as per our choice as laser // lasers is different
+    }
+    
 }

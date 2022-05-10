@@ -284,12 +284,17 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623682703}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 91.4, y: 58.2, z: 137.2}
+  m_LocalPosition: {x: 22.3, y: 58.2, z: 137.2}
   m_LocalScale: {x: 22.563997, y: 22.563997, z: 22.563997}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &626240946 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2861887142810208059, guid: 1d6e81df6d3596743bd65e632f1131c0, type: 3}
+  m_PrefabInstance: {fileID: 5361259563588332550}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,6 +464,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1365046676 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8504294275881278794, guid: 1d6e81df6d3596743bd65e632f1131c0, type: 3}
+  m_PrefabInstance: {fileID: 5361259563588332550}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1934972610 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5361259561754589892, guid: 1d6e81df6d3596743bd65e632f1131c0, type: 3}
@@ -471,6 +481,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1168186824423679374, guid: 1d6e81df6d3596743bd65e632f1131c0, type: 3}
+      propertyPath: lasers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1168186824423679374, guid: 1d6e81df6d3596743bd65e632f1131c0, type: 3}
+      propertyPath: lasers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1365046676}
+    - target: {fileID: 1168186824423679374, guid: 1d6e81df6d3596743bd65e632f1131c0, type: 3}
+      propertyPath: lasers.Array.data[1]
+      value: 
+      objectReference: {fileID: 626240946}
     - target: {fileID: 5361259561754589894, guid: 1d6e81df6d3596743bd65e632f1131c0, type: 3}
       propertyPath: m_Name
       value: Player Rig
