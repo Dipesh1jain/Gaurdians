@@ -5,23 +5,41 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] GameObject deathVFX;
+    [SerializeField] GameObject hitVFX;
+
+
     [SerializeField] Transform parent;
     ScoreBoard scoreBoard;
     [SerializeField] int scorePerHit = 15;
+    [SerializeField] int hitPoints = 2;
     // Start is called before the first frame update
     void Start()
     {
         scoreBoard = FindObjectOfType<ScoreBoard>(); // using this method so that we dont have to attach scoreborad script to the enemy,
-                                                     // instead it will fetch that automatically
-        
+                                                    // instead it will fetch that automatically
+        AddRigidBody();
     }
+
+    void AddRigidBody() //  using this method so that we dont have to attach rigidbody to the enemy,
+    {
+        Rigidbody rb = gameObject.AddComponent<Rigidbody>();                                             
+        rb.useGravity = false; // using this so everytime when we add rigidbody we make sure that gravity is turned off
+    }
+
     void OnParticleCollision(GameObject other)
     {
         ProcessHit();
-        KillEnemy();
+        if(hitPoints<1)
+        {
+            KillEnemy();
+        }
+     
     }
      void ProcessHit()
     {
+        GameObject vfx = Instantiate(hitVFX, transform.position, Quaternion.identity); //using this Instantiate method so that we can call the deathvfx at runtime
+        vfx.transform.parent = parent;
+        hitPoints--;
         scoreBoard.IncreaseScore(scorePerHit);
     }
 
@@ -29,7 +47,9 @@ public class Enemy : MonoBehaviour
     {
         GameObject vfx = Instantiate(deathVFX, transform.position, Quaternion.identity); //using this Instantiate method so that we can call the deathvfx at runtime
         vfx.transform.parent = parent;                                                              //rater than making it a part of enemy prefab
-        Destroy(gameObject);
+        
+            Destroy(gameObject);
+        
     }
 
     
