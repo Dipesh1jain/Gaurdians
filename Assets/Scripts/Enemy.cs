@@ -6,9 +6,8 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] GameObject deathVFX;
     [SerializeField] GameObject hitVFX;
-
-
-    [SerializeField] Transform parent;
+    
+    GameObject parentGameObject;
     ScoreBoard scoreBoard;
     [SerializeField] int scorePerHit = 15;
     [SerializeField] int hitPoints = 2;
@@ -16,7 +15,8 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         scoreBoard = FindObjectOfType<ScoreBoard>(); // using this method so that we dont have to attach scoreborad script to the enemy,
-                                                    // instead it will fetch that automatically
+                                                     // instead it will fetch that automatically
+        parentGameObject = GameObject.FindWithTag("SpawnAtRuntime");// using this , so that we can add all the hitvfx clone inside this automatically
         AddRigidBody();
     }
 
@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
      void ProcessHit()
     {
         GameObject vfx = Instantiate(hitVFX, transform.position, Quaternion.identity); //using this Instantiate method so that we can call the deathvfx at runtime
-        vfx.transform.parent = parent;
+        vfx.transform.parent = parentGameObject.transform;
         hitPoints--;
         scoreBoard.IncreaseScore(scorePerHit);
     }
@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
     void KillEnemy()
     {
         GameObject vfx = Instantiate(deathVFX, transform.position, Quaternion.identity); //using this Instantiate method so that we can call the deathvfx at runtime
-        vfx.transform.parent = parent;                                                              //rater than making it a part of enemy prefab
+        vfx.transform.parent = parentGameObject.transform;                                                              //rater than making it a part of enemy prefab
         
             Destroy(gameObject);
         
