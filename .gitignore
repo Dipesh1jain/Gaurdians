@@ -27,7 +27,7 @@ dir_to_ignore/D:/Gaurdians/GuardiansGame/Gaurdians_Data
 # Visual Studio cache directory
 .vs/
 
-.res
+
 
 # Gradle cache directory
 .gradle/
