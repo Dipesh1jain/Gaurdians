@@ -1051,6 +1051,11 @@ PlayableDirector:
     value: {fileID: 1316776747}
   m_ExposedReferences:
     m_References: []
+--- !u!1 &2138559725 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5360007134858639023, guid: 1d6e81df6d3596743bd65e632f1131c0, type: 3}
+  m_PrefabInstance: {fileID: 5361259563588332550}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4869164852186116770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1224,6 +1229,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6462568076170203015, guid: 1d6e81df6d3596743bd65e632f1131c0, type: 3}
+      propertyPath: fighterParts.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462568076170203015, guid: 1d6e81df6d3596743bd65e632f1131c0, type: 3}
+      propertyPath: fighterParts.Array.data[3]
+      value: 
+      objectReference: {fileID: 2138559725}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d6e81df6d3596743bd65e632f1131c0, type: 3}
 --- !u!1001 &5748063857214485429
